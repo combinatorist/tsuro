@@ -24,20 +24,20 @@ def symmetries(pieces):
     equivalence_classes = [pieces[:1]]
     for piece in pieces[1:]:
         matched = False
-        for ec in equivalence_classes:
-            matched = same_piece(piece, ec[0])
+        for equivalence_class in equivalence_classes:
+            matched = same_piece(piece, equivalence_class[0])
             if matched:
-              ec.append(piece)
-              break
+                equivalence_class.append(piece)
+                break
         if matched:
-          continue
+            continue
         equivalence_classes.append([piece])
     return equivalence_classes
 
 def same_piece(piece, cannon):
     "checks whether two piece descriptions are equivalent (by rotation)"
     piece_copy = deepcopy(piece)
-    for rotation in range(3):
+    for _ in range(3):
         piece_copy = rotate(piece_copy)
         if piece_copy == cannon:
             return True
@@ -45,13 +45,17 @@ def same_piece(piece, cannon):
 
 def rotate(piece):
     "rotates a piece description"
-    return tuple(sorted(tuple(sorted((x + 2) % 8 for x in edge)) for edge in piece))
+    return tuple(sorted(rotate_path(path) for path in piece))
+
+def rotate_path(path):
+    "rotates a path on a piece"
+    return tuple(sorted((x + 2) % 8 for x in path))
 
 def flatten(nested4levels):
     "flattens the nested list of recursive refinements"
     return [z for w in nested4levels for x in w for y in x for z in y]
 
-def refine(piece = ()):
+def refine(piece=()):
     "recurses into all possible piece descriptions"
     if len(piece) == 4:
         return piece
