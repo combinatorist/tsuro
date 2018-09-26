@@ -13,7 +13,10 @@ def main():
     pprint(equivalence_classes)
 
     print("\ncannonical piece descriptions:")
-    pprint(representative(equivalence_classes))
+    cannonical_pieces = representative(equivalence_classes)
+    pprint(cannonical_pieces)
+
+    return cannonical_pieces
 
 def representative(equivalence_classes):
     "grabs the first (i.e. cannonical) example from each equivalence_class"
