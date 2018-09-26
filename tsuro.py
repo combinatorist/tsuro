@@ -1,5 +1,19 @@
 from copy import deepcopy
 
+def main():
+    from pprint import pprint
+    naive = refine()
+
+    print("\nnaive piece descriptions:")
+    pprint(naive)
+
+    print("\nsymmetries:")
+    equivalence_classes = symmetries(flatten(naive))
+    pprint(equivalence_classes)
+
+    print("\ncannonical piece descriptions:")
+    pprint(representative(equivalence_classes))
+
 def representative(equivalence_classes):
     return [x[0] for x in equivalence_classes]
 
@@ -43,20 +57,6 @@ def next_start(piece):
 def available(piece):
     used_positions = [x for row in piece for x in row]
     return [x for x in range(8) if x not in used_positions]
-
-def main():
-    from pprint import pprint
-    naive = refine()
-
-    print("\nnaive piece descriptions:")
-    pprint(naive)
-
-    print("\nsymmetries:")
-    equivalence_classes = symmetries(flatten(naive))
-    pprint(equivalence_classes)
-
-    print("\ncannonical piece descriptions:")
-    pprint(representative(equivalence_classes))
 
 if __name__ == '__main__':
     main()
