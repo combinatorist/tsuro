@@ -12,6 +12,19 @@ I hope to expand this with generalizations, formulas, and optimizations.
 - That other node may be on the same side or a different one.
 - The game has exactly one of each possible piece (up to rotation).
 
+```
++------+------+------+
+|      |      |      |
+|      /      \      |
++---\ /        \-----+
+|    x               |
+|   / \              |
++--/   \-------------+
+|       /----\       |
+|      |      |      |
++------+------+------+
+```
+
 ## Usage
 Simply run:
 
