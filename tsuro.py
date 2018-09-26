@@ -12,14 +12,14 @@ def main():
     equivalence_classes = symmetries(flatten(naive))
     pprint(equivalence_classes)
 
-    print("\ncannonical piece descriptions:")
-    cannonical_pieces = representative(equivalence_classes)
-    pprint(cannonical_pieces)
+    print("\ncanonical piece descriptions:")
+    canonical_pieces = representative(equivalence_classes)
+    pprint(canonical_pieces)
 
-    return cannonical_pieces
+    return canonical_pieces
 
 def representative(equivalence_classes):
-    "grabs the first (i.e. cannonical) example from each equivalence_class"
+    "grabs the first (i.e. canonical) example from each equivalence_class"
     return [x[0] for x in equivalence_classes]
 
 def symmetries(pieces):
@@ -37,12 +37,12 @@ def symmetries(pieces):
         equivalence_classes.append([piece])
     return equivalence_classes
 
-def same_piece(piece, cannon):
+def same_piece(piece, canon):
     "checks whether two piece descriptions are equivalent (by rotation)"
     piece_copy = deepcopy(piece)
     for _ in range(3):
         piece_copy = rotate(piece_copy)
-        if piece_copy == cannon:
+        if piece_copy == canon:
             return True
     return False
 
