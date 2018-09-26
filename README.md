@@ -25,6 +25,12 @@ I hope to expand this with generalizations, formulas, and optimizations.
 +------+------+------+
 ```
 
+## Notation / Data Structure
+- I numbered the nodes around the square 0 - 7.
+- To describe a piece, I list 4 pairs (paths) of connected nodes.
+- For comparison, I sort the nodes in a pair and the pairs in the list.
+- Of all the equivalent descriptions, the first by sorting is the canonical one.
+
 ## Usage
 Simply run:
 
