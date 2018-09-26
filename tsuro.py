@@ -3,9 +3,9 @@ from copy import deepcopy
 def main():
     "script to print out default results (no arguments)"
     from pprint import pprint
-    naive = refine()
 
     print("\nnaive piece descriptions:")
+    naive = refine()
     pprint(naive)
 
     print("\nsymmetries:")
